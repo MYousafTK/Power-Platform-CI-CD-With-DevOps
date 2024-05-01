@@ -1,0 +1,21 @@
+<powerpagecomponent powerpagecomponentid="e49c2ea2-2bca-1860-d444-a1e387561b4a">
+  <content>{
+  "displayorder": 5,
+  "weblinksetid": "7925a911-9393-4e8a-b04d-a43d060c92c6",
+  "pageid": "18035bcd-4b2e-ec5e-7643-6cefccd3c89e",
+  "publishingstateid": "9b9e528b-c84c-4cb4-afaa-56d94d4eb921",
+  "displaypagevalidation": false,
+  "displayimageonly": false,
+  "displaypagechildlinks": false,
+  "openinnewwindow": false,
+  "robotsfollowlink": true
+}</content>
+  <iscustomizable>1</iscustomizable>
+  <name>sample</name>
+  <powerpagecomponenttype>5</powerpagecomponenttype>
+  <powerpagesiteid>
+    <powerpagesiteid>6dc36fbc-1f20-4641-8e41-bf3fb5b9a72a</powerpagesiteid>
+  </powerpagesiteid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</powerpagecomponent>

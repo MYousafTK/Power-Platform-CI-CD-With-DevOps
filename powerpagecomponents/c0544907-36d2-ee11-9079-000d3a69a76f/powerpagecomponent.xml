@@ -1,0 +1,13 @@
+<powerpagecomponent powerpagecomponentid="c0544907-36d2-ee11-9079-000d3a69a76f">
+  <content>{
+  "pageid": "34787b00-9ef6-3d86-1fb8-d0cbd6c51028"
+}</content>
+  <iscustomizable>1</iscustomizable>
+  <name>CreateTaskPage</name>
+  <powerpagecomponenttype>13</powerpagecomponenttype>
+  <powerpagesiteid>
+    <powerpagesiteid>6dc36fbc-1f20-4641-8e41-bf3fb5b9a72a</powerpagesiteid>
+  </powerpagesiteid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</powerpagecomponent>

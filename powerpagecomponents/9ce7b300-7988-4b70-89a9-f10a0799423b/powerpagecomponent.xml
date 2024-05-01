@@ -1,0 +1,14 @@
+<powerpagecomponent powerpagecomponentid="9ce7b300-7988-4b70-89a9-f10a0799423b">
+  <content>{"display_name":"Account/Signin/Terms And Conditions Agreement Text","type":756150000,"value":"I agree to these terms and conditions."}</content>
+  <iscustomizable>1</iscustomizable>
+  <name>Account/Signin/TermsAndConditionsAgreementText</name>
+  <powerpagecomponenttype>7</powerpagecomponenttype>
+  <powerpagesiteid>
+    <powerpagesiteid>6dc36fbc-1f20-4641-8e41-bf3fb5b9a72a</powerpagesiteid>
+  </powerpagesiteid>
+  <powerpagesitelanguageid>
+    <powerpagesitelanguageid>d1f8d8ba-31d1-4964-9d0a-be4e20c8ecd2</powerpagesitelanguageid>
+  </powerpagesitelanguageid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</powerpagecomponent>

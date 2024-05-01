@@ -1,0 +1,11 @@
+<powerpagesites>
+  <powerpagesite powerpagesiteid="6dc36fbc-1f20-4641-8e41-bf3fb5b9a72a">
+    <content>{"defaultlanguage":"d1f8d8ba-31d1-4964-9d0a-be4e20c8ecd2","footerwebtemplateid":"479844ab-2d39-468e-96a7-3a7d193c4637","headerwebtemplateid":"4bdab8dc-5c49-45ce-9bc0-1507c2608cc0","statecode":0,"statuscode":1,"website_language":1033}</content>
+    <datamodelversion>2.0</datamodelversion>
+    <iscustomizable>1</iscustomizable>
+    <name>Site 1 - site-3j0fp</name>
+    <primarydomainname>site-3j0fp.powerappsportals.com</primarydomainname>
+    <statecode>0</statecode>
+    <statuscode>1</statuscode>
+  </powerpagesite>
+</powerpagesites>

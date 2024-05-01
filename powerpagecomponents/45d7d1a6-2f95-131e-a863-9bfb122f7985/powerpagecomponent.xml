@@ -1,0 +1,21 @@
+<powerpagecomponent powerpagecomponentid="45d7d1a6-2f95-131e-a863-9bfb122f7985">
+  <content>{
+  "displayorder": 7,
+  "weblinksetid": "7925a911-9393-4e8a-b04d-a43d060c92c6",
+  "pageid": "4a71b5a7-a619-d591-a558-267a1c70ad9e",
+  "publishingstateid": "9b9e528b-c84c-4cb4-afaa-56d94d4eb921",
+  "displaypagevalidation": false,
+  "displayimageonly": false,
+  "displaypagechildlinks": false,
+  "openinnewwindow": false,
+  "robotsfollowlink": true
+}</content>
+  <iscustomizable>1</iscustomizable>
+  <name>Task</name>
+  <powerpagecomponenttype>5</powerpagecomponenttype>
+  <powerpagesiteid>
+    <powerpagesiteid>6dc36fbc-1f20-4641-8e41-bf3fb5b9a72a</powerpagesiteid>
+  </powerpagesiteid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</powerpagecomponent>

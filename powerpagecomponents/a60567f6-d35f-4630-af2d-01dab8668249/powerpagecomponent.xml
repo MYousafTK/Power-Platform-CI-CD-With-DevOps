@@ -1,0 +1,14 @@
+<powerpagecomponent powerpagecomponentid="a60567f6-d35f-4630-af2d-01dab8668249">
+  <content>{"display_name":"Profile/SecurityNav/ChangePassword","type":756150000,"value":"Change Password"}</content>
+  <iscustomizable>1</iscustomizable>
+  <name>Profile/SecurityNav/ChangePassword</name>
+  <powerpagecomponenttype>7</powerpagecomponenttype>
+  <powerpagesiteid>
+    <powerpagesiteid>6dc36fbc-1f20-4641-8e41-bf3fb5b9a72a</powerpagesiteid>
+  </powerpagesiteid>
+  <powerpagesitelanguageid>
+    <powerpagesitelanguageid>d1f8d8ba-31d1-4964-9d0a-be4e20c8ecd2</powerpagesitelanguageid>
+  </powerpagesitelanguageid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</powerpagecomponent>

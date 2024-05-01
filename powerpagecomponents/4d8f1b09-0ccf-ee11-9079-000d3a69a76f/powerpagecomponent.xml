@@ -1,0 +1,13 @@
+<powerpagecomponent powerpagecomponentid="4d8f1b09-0ccf-ee11-9079-000d3a69a76f">
+  <content>{
+  "value": "*"
+}</content>
+  <iscustomizable>1</iscustomizable>
+  <name>Webapi/task/fields</name>
+  <powerpagecomponenttype>9</powerpagecomponenttype>
+  <powerpagesiteid>
+    <powerpagesiteid>6dc36fbc-1f20-4641-8e41-bf3fb5b9a72a</powerpagesiteid>
+  </powerpagesiteid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</powerpagecomponent>

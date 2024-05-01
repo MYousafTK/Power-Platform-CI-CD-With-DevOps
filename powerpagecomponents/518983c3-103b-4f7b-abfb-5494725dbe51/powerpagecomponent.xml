@@ -1,0 +1,14 @@
+<powerpagecomponent powerpagecomponentid="518983c3-103b-4f7b-abfb-5494725dbe51">
+  <content>{"display_name":"Account/Signin/Minor Not Allowed Heading","type":756150000,"value":"Age Requirements"}</content>
+  <iscustomizable>1</iscustomizable>
+  <name>Account/Signin/MinorNotAllowedHeading</name>
+  <powerpagecomponenttype>7</powerpagecomponenttype>
+  <powerpagesiteid>
+    <powerpagesiteid>6dc36fbc-1f20-4641-8e41-bf3fb5b9a72a</powerpagesiteid>
+  </powerpagesiteid>
+  <powerpagesitelanguageid>
+    <powerpagesitelanguageid>d1f8d8ba-31d1-4964-9d0a-be4e20c8ecd2</powerpagesitelanguageid>
+  </powerpagesitelanguageid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</powerpagecomponent>

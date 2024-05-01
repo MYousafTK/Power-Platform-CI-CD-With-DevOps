@@ -1,0 +1,11 @@
+<powerpagecomponent powerpagecomponentid="5fc760fb-65cd-4a31-9de3-7bb5da4ea2c1">
+  <content>{"value":"true"}</content>
+  <iscustomizable>1</iscustomizable>
+  <name>Authentication/Registration/Enabled</name>
+  <powerpagecomponenttype>9</powerpagecomponenttype>
+  <powerpagesiteid>
+    <powerpagesiteid>6dc36fbc-1f20-4641-8e41-bf3fb5b9a72a</powerpagesiteid>
+  </powerpagesiteid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</powerpagecomponent>

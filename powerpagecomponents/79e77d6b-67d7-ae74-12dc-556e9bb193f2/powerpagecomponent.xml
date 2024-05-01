@@ -1,0 +1,307 @@
+<powerpagecomponent powerpagecomponentid="79e77d6b-67d7-ae74-12dc-556e9bb193f2">
+  <content>{"filecontent":null,"displayorder":5,"customcss":"","customjavascript":"","pagetemplateid":"9667a70c-0a7e-4925-8878-8f4802b5e7f9","parentpageid":"7f86bc5a-e9eb-4558-a54a-aff1f37057aa","partialurl":"sample","isroot":false,"rootwebpageid":"18035bcd-4b2e-ec5e-7643-6cefccd3c89e","title":"sample","summary":"&lt;p&gt;This is a sample landing page designed to be a starting point for your website&lt;/p&gt;","copy":"&lt;div id=\"igwmmj\" class=\"row sectionBlockLayout text-start\" style=\"display: flex; flex-wrap: wrap; margin: 0px; min-height: auto; padding: 8px;\"&gt;\n  &lt;div id=\"i81mkr\" class=\"container\" style=\"display: flex; flex-wrap: wrap;\"&gt;\n    &lt;div id=\"izrt57\" class=\"col-lg-12 columnBlockLayout\" style=\"flex-grow: 1; display: flex; flex-direction: column; min-width: 250px; word-break: break-word; padding: 16px; margin: 60px 0px;\"&gt;&lt;/div&gt;\n  &lt;!-- Sample code for Web API demonstration --&gt;\n&lt;style&gt;\n  #processingMsg {\n      width: 150px;\n      text-align: center;\n      padding: 6px 10px;\n      z-index: 9999;\n      top: 0;\n      left: 40%;\n      position: fixed;\n      -webkit-border-radius: 0 0 2px 2px;\n      border-radius: 0 0 2px 2px;\n      -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);\n      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);\n      display: none;\n  }\n\n  table td[data-attribute] .glyphicon-pencil {\n      margin-left: 5px;\n      opacity: 0;\n  }\n\n  table td[data-attribute]:hover .glyphicon-pencil {\n      opacity: 0.7;\n  }\n&lt;/style&gt;\n\n&lt;script&gt;\n$(function() {\n  \n  //Web API ajax wrapper\n  (function(webapi, $) {\n    function safeAjax(ajaxOptions) {\n      var deferredAjax = $.Deferred();\n      shell.getTokenDeferred().done(function(token) {\n        // Add headers for ajax\n        if (!ajaxOptions.headers) {\n          $.extend(ajaxOptions, {\n            headers: {\n              \"__RequestVerificationToken\": token\n            }\n          });\n        } else {\n          ajaxOptions.headers[\"__RequestVerificationToken\"] = token;\n        }\n        $.ajax(ajaxOptions)\n          .done(function(data, textStatus, jqXHR) {\n            validateLoginSession(data, textStatus, jqXHR, deferredAjax.resolve);\n          }).fail(deferredAjax.reject); //ajax\n      }).fail(function() {\n        deferredAjax.rejectWith(this, arguments); // On token failure pass the token ajax and args\n      });\n      return deferredAjax.promise();\n    }\n    webapi.safeAjax = safeAjax;\n  })(window.webapi = window.webapi || {}, jQuery)\n  // Notification component\n  var notificationMsg = (function() {\n    var $processingMsgEl = $('#processingMsg'),\n      _msg = 'Processing...',\n      _stack = 0,\n      _endTimeout;\n    return {\n      show: function(msg) {\n        $processingMsgEl.text(msg || _msg);\n        if (_stack === 0) {\n          clearTimeout(_endTimeout);\n          $processingMsgEl.show();\n        }\n        _stack++;\n      },\n      hide: function() {\n        _stack--;\n        if (_stack &lt;= 0) {\n          _stack = 0;\n          clearTimeout(_endTimeout);\n          _endTimeout = setTimeout(function() {\n            $processingMsgEl.hide();\n          }, 500);\n        }\n      }\n    }\n  })();\n  // Inline editable table component\n  var webAPIExampleTable = (function() {\n    var trTpl = '&lt;% _.forEach(data, function(data){ %&gt;' +\n      '&lt;tr data-id=\"&lt;%=data.id%&gt;\" data-name=\"&lt;%=data.subject%&gt;\"&gt;' +\n      '&lt;% _.forEach(columns, function(col){ %&gt;' +\n      '&lt;td data-attribute=\"&lt;%=col.name%&gt;\" data-label=\"&lt;%=col.label%&gt;\" data-value=\"&lt;%=data[col.name]%&gt;\"&gt;' +\n      '&lt;%-data[col.name]%&gt;&lt;i class=\"glyphicon glyphicon-pencil\"&gt;&lt;/i&gt;' +\n      '&lt;/td&gt;' +\n      '&lt;% }) %&gt;' +\n      '&lt;td&gt;' +\n      '&lt;button class=\"btn btn-default delete\" type=\"submit\"&gt;&lt;i class=\"glyphicon glyphicon-trash\" aria-hidden=\"true\"&gt;&lt;/i&gt;&lt;/button&gt;' +\n      '&lt;/td&gt;' +\n      '&lt;/tr&gt;' +\n      '&lt;% }) %&gt;';\n    var tableTpl = '&lt;table class=\"table table-hover\"&gt;' +\n      '&lt;thead&gt;' +\n      '&lt;tr&gt;' +\n      '&lt;% _.forEach(columns, function(col){ %&gt;' +\n      '&lt;th&gt;&lt;%=col.label%&gt;&lt;/th&gt;' +\n      '&lt;% }) %&gt;' +\n      '&lt;th&gt;' +\n      '&lt;button class=\"btn btn-default add\" type=\"submit\"&gt;' +\n      '&lt;i class=\"glyphicon glyphicon-plus\" aria-hidden=\"true\"&gt;&lt;/i&gt; Add Sample Record' +\n      '&lt;/button&gt;' +\n      '&lt;/th&gt;' +\n      '&lt;/tr&gt;' +\n      '&lt;/thead&gt;' +\n      '&lt;tbody&gt;' + trTpl + '&lt;/tbody&gt;' +\n      '&lt;/table&gt;';\n    function getDataObject(rowEl) {\n      var $rowEl = $(rowEl),\n        attrObj = {\n          id: $rowEl.attr('data-id'),\n          name: $rowEl.attr('data-name')\n        };\n      $rowEl.find('td').each(function(i, el) {\n        var $el = $(el),\n          key = $el.attr('data-attribute');\n        if (key) {\n          attrObj[key] = $el.attr('data-value');\n        }\n      })\n      return attrObj;\n    }\n    function bindRowEvents(tr, config) {\n      var $row = $(tr),\n        $deleteButton = $row.find('button.delete'),\n        dataObj = getDataObject($row);\n      $.each(config.columns, function(i, col) {\n        var $el = $row.find('td[data-attribute=\"' + col.name + '\"]');\n        $el.on('click', $.proxy(col.handler, $el, col, dataObj));\n      });\n      //User can delete record using this button\n      $deleteButton.on('click', $.proxy(config.deleteHandler, $row, dataObj));\n    }\n    function bindTableEvents($table, config) {\n      $table.find('tbody tr').each(function(i, tr) {\n        bindRowEvents(tr, config);\n      });\n      $table.find('thead button.add').on('click', $.proxy(config.addHandler, $table));\n    }\n    return function(config) {\n      var me = this,\n        columns = config.columns,\n        addHandler = config.addHandler,\n        deleteHandler = config.deleteHandler,\n        $table;\n      me.render = function(el) {\n        $table = $(el).html(_.template(tableTpl)({\n          columns: columns,\n          data: me.data\n        })).find('table');\n        bindTableEvents($table, {\n          columns: columns,\n          addHandler: addHandler,\n          deleteHandler: deleteHandler\n        });\n      }\n      me.addRecord = function(record) {\n        $table.find('tbody tr:first').before(_.template(trTpl)({\n          columns: columns,\n          data: [record]\n        }));\n        bindRowEvents($table.find('tbody tr:first'), config);\n      }\n      me.updateRecord = function(attributeName, newValue, record) {\n        $table.find('tr[data-id=\"' + record.id + '\"] td[data-attribute=\"' + attributeName + '\"]').text(newValue);\n      }\n      me.removeRecord = function(record) {\n        $table.find('tr[data-id=\"' + record.id + '\"]').fadeTo(\"slow\", 0.7, function() {\n          $(this).remove();\n        });\n      }\n    };\n  })();\n  //Applicaton ajax wrapper \n  function appAjax(processingMsg, ajaxOptions) {\n    notificationMsg.show(processingMsg);\n    return webapi.safeAjax(ajaxOptions)\n      .fail(function(response) {\n        if (response.responseJSON) {\n          alert(\"Error: \" + response.responseJSON.error.message)\n        } else {\n          alert(\"Error: Web API is not available... \")\n        }\n      }).always(notificationMsg.hide);\n  }\n  function loadRecords() {\n    return appAjax('Loading...', {\n      type: \"GET\",\n      url: \"/_api/tasks\",\n      //?$select=fullname,firstname,lastname,emailaddress1,telephone1\",\n      contentType: \"application/json\"\n    });\n  }\n  function addSampleRecord() {\n    debugger;\n    //Sample data to create a record - change as appropriate\n    var recordObj = {\n      subject: \"Type your subject\",\n      scheduledend: new Date().toISOString(),\n      prioritycode: 2,\n      description: \"Description\"\n    };\n    appAjax('Adding...', {\n      type: \"POST\",\n      url: \"/_api/tasks\",\n      contentType: \"application/json\",\n      data: JSON.stringify(recordObj),\n      success: function(res, status, xhr) {\n        recordObj.id = xhr.getResponseHeader(\"entityid\");\n        //recordObj.fullname = recordObj.firstname + \" \" + recordObj.lastname;\n        table.addRecord(recordObj);\n      }\n    });\n    return false;\n  }\n  function deleteRecord(recordObj) {\n    var response = confirm(\"Are you sure, you want to delete \\\"\" + recordObj.name + \"\\\" ?\");\n    if (response == true) {\n      appAjax('Deleting...', {\n        type: \"DELETE\",\n        url: \"/_api/tasks(\" + recordObj.id + \")\",\n        contentType: \"application/json\",\n        success: function(res) {\n          table.removeRecord(recordObj);\n        }\n      });\n    }\n    return false;\n  }\n  function updateRecordAttribute(col, recordObj) {\n    var attributeName = col.name,\n      value = recordObj[attributeName],\n      newValue = prompt(\"Please enter \\\"\" + col.label + \"\\\"\", value);\n    if (newValue != null &amp;&amp; newValue !== value) {\n      appAjax('Updating...', {\n        type: \"PUT\",\n        url: \"/_api/tasks(\" + recordObj.id + \")/\" + attributeName,\n        contentType: \"application/json\",\n        data: JSON.stringify({\n          \"value\": newValue\n        }),\n        success: function(res) {\n          table.updateRecord(attributeName, newValue, recordObj);\n        }\n      });\n    }\n    return false;\n  }\n  var table = new webAPIExampleTable({\n    columns: [{\n      name: 'subject',\n      label: 'Subject',\n      handler: updateRecordAttribute\n    }, {\n      name: 'Due Date',\n      label: 'scheduledend',\n      handler: updateRecordAttribute\n    }, {\n      name: 'prioritycode',\n      label: 'Priority',\n      handler: updateRecordAttribute\n    }, {\n      name: 'description',\n      label: 'Description',\n      handler: updateRecordAttribute\n    }],\n    data: [],\n    addHandler: addSampleRecord,\n    deleteHandler: deleteRecord\n  });\n  loadRecords().done(function(data) {\n    table.data = _.map(data.value, function(record){\n      record.id = record.activityid;\n      return record;\n    });\n    table.render($('#dataTable'));\n  });\n});\n&lt;/script&gt;\n&lt;div id=\"processingMsg\" class=\"alert alert-warning\" role=\"alert\"&gt;&lt;/div&gt;\n&lt;div id=\"dataTable\"&gt;&lt;/div&gt;\n\n  &lt;/div&gt;\n&lt;/div&gt;\n","publishingstateid":"9b9e528b-c84c-4cb4-afaa-56d94d4eb921","enablerating":false,"enabletracking":false,"excludefromsearch":false,"hiddenfromsitemap":true,"sharedpageconfiguration":false}</content>
+  <iscustomizable>1</iscustomizable>
+  <name>sample</name>
+  <powerpagecomponenttype>2</powerpagecomponenttype>
+  <powerpagesiteid>
+    <powerpagesiteid>6dc36fbc-1f20-4641-8e41-bf3fb5b9a72a</powerpagesiteid>
+  </powerpagesiteid>
+  <powerpagesitelanguageid>
+    <powerpagesitelanguageid>d1f8d8ba-31d1-4964-9d0a-be4e20c8ecd2</powerpagesitelanguageid>
+  </powerpagesitelanguageid>
+  <searchcontent>sample&lt;div id="igwmmj" class="row sectionBlockLayout text-start" style="display: flex; flex-wrap: wrap; margin: 0px; min-height: auto; padding: 8px;"&gt;
+  &lt;div id="i81mkr" class="container" style="display: flex; flex-wrap: wrap;"&gt;
+    &lt;div id="izrt57" class="col-lg-12 columnBlockLayout" style="flex-grow: 1; display: flex; flex-direction: column; min-width: 250px; word-break: break-word; padding: 16px; margin: 60px 0px;"&gt;&lt;/div&gt;
+  &lt;!-- Sample code for Web API demonstration --&gt;
+&lt;style&gt;
+  #processingMsg {
+      width: 150px;
+      text-align: center;
+      padding: 6px 10px;
+      z-index: 9999;
+      top: 0;
+      left: 40%;
+      position: fixed;
+      -webkit-border-radius: 0 0 2px 2px;
+      border-radius: 0 0 2px 2px;
+      -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      display: none;
+  }
+
+  table td[data-attribute] .glyphicon-pencil {
+      margin-left: 5px;
+      opacity: 0;
+  }
+
+  table td[data-attribute]:hover .glyphicon-pencil {
+      opacity: 0.7;
+  }
+&lt;/style&gt;
+
+&lt;script&gt;
+$(function() {
+  
+  //Web API ajax wrapper
+  (function(webapi, $) {
+    function safeAjax(ajaxOptions) {
+      var deferredAjax = $.Deferred();
+      shell.getTokenDeferred().done(function(token) {
+        // Add headers for ajax
+        if (!ajaxOptions.headers) {
+          $.extend(ajaxOptions, {
+            headers: {
+              "__RequestVerificationToken": token
+            }
+          });
+        } else {
+          ajaxOptions.headers["__RequestVerificationToken"] = token;
+        }
+        $.ajax(ajaxOptions)
+          .done(function(data, textStatus, jqXHR) {
+            validateLoginSession(data, textStatus, jqXHR, deferredAjax.resolve);
+          }).fail(deferredAjax.reject); //ajax
+      }).fail(function() {
+        deferredAjax.rejectWith(this, arguments); // On token failure pass the token ajax and args
+      });
+      return deferredAjax.promise();
+    }
+    webapi.safeAjax = safeAjax;
+  })(window.webapi = window.webapi || {}, jQuery)
+  // Notification component
+  var notificationMsg = (function() {
+    var $processingMsgEl = $('#processingMsg'),
+      _msg = 'Processing...',
+      _stack = 0,
+      _endTimeout;
+    return {
+      show: function(msg) {
+        $processingMsgEl.text(msg || _msg);
+        if (_stack === 0) {
+          clearTimeout(_endTimeout);
+          $processingMsgEl.show();
+        }
+        _stack++;
+      },
+      hide: function() {
+        _stack--;
+        if (_stack &lt;= 0) {
+          _stack = 0;
+          clearTimeout(_endTimeout);
+          _endTimeout = setTimeout(function() {
+            $processingMsgEl.hide();
+          }, 500);
+        }
+      }
+    }
+  })();
+  // Inline editable table component
+  var webAPIExampleTable = (function() {
+    var trTpl = '&lt;% _.forEach(data, function(data){ %&gt;' +
+      '&lt;tr data-id="&lt;%=data.id%&gt;" data-name="&lt;%=data.subject%&gt;"&gt;' +
+      '&lt;% _.forEach(columns, function(col){ %&gt;' +
+      '&lt;td data-attribute="&lt;%=col.name%&gt;" data-label="&lt;%=col.label%&gt;" data-value="&lt;%=data[col.name]%&gt;"&gt;' +
+      '&lt;%-data[col.name]%&gt;&lt;i class="glyphicon glyphicon-pencil"&gt;&lt;/i&gt;' +
+      '&lt;/td&gt;' +
+      '&lt;% }) %&gt;' +
+      '&lt;td&gt;' +
+      '&lt;button class="btn btn-default delete" type="submit"&gt;&lt;i class="glyphicon glyphicon-trash" aria-hidden="true"&gt;&lt;/i&gt;&lt;/button&gt;' +
+      '&lt;/td&gt;' +
+      '&lt;/tr&gt;' +
+      '&lt;% }) %&gt;';
+    var tableTpl = '&lt;table class="table table-hover"&gt;' +
+      '&lt;thead&gt;' +
+      '&lt;tr&gt;' +
+      '&lt;% _.forEach(columns, function(col){ %&gt;' +
+      '&lt;th&gt;&lt;%=col.label%&gt;&lt;/th&gt;' +
+      '&lt;% }) %&gt;' +
+      '&lt;th&gt;' +
+      '&lt;button class="btn btn-default add" type="submit"&gt;' +
+      '&lt;i class="glyphicon glyphicon-plus" aria-hidden="true"&gt;&lt;/i&gt; Add Sample Record' +
+      '&lt;/button&gt;' +
+      '&lt;/th&gt;' +
+      '&lt;/tr&gt;' +
+      '&lt;/thead&gt;' +
+      '&lt;tbody&gt;' + trTpl + '&lt;/tbody&gt;' +
+      '&lt;/table&gt;';
+    function getDataObject(rowEl) {
+      var $rowEl = $(rowEl),
+        attrObj = {
+          id: $rowEl.attr('data-id'),
+          name: $rowEl.attr('data-name')
+        };
+      $rowEl.find('td').each(function(i, el) {
+        var $el = $(el),
+          key = $el.attr('data-attribute');
+        if (key) {
+          attrObj[key] = $el.attr('data-value');
+        }
+      })
+      return attrObj;
+    }
+    function bindRowEvents(tr, config) {
+      var $row = $(tr),
+        $deleteButton = $row.find('button.delete'),
+        dataObj = getDataObject($row);
+      $.each(config.columns, function(i, col) {
+        var $el = $row.find('td[data-attribute="' + col.name + '"]');
+        $el.on('click', $.proxy(col.handler, $el, col, dataObj));
+      });
+      //User can delete record using this button
+      $deleteButton.on('click', $.proxy(config.deleteHandler, $row, dataObj));
+    }
+    function bindTableEvents($table, config) {
+      $table.find('tbody tr').each(function(i, tr) {
+        bindRowEvents(tr, config);
+      });
+      $table.find('thead button.add').on('click', $.proxy(config.addHandler, $table));
+    }
+    return function(config) {
+      var me = this,
+        columns = config.columns,
+        addHandler = config.addHandler,
+        deleteHandler = config.deleteHandler,
+        $table;
+      me.render = function(el) {
+        $table = $(el).html(_.template(tableTpl)({
+          columns: columns,
+          data: me.data
+        })).find('table');
+        bindTableEvents($table, {
+          columns: columns,
+          addHandler: addHandler,
+          deleteHandler: deleteHandler
+        });
+      }
+      me.addRecord = function(record) {
+        $table.find('tbody tr:first').before(_.template(trTpl)({
+          columns: columns,
+          data: [record]
+        }));
+        bindRowEvents($table.find('tbody tr:first'), config);
+      }
+      me.updateRecord = function(attributeName, newValue, record) {
+        $table.find('tr[data-id="' + record.id + '"] td[data-attribute="' + attributeName + '"]').text(newValue);
+      }
+      me.removeRecord = function(record) {
+        $table.find('tr[data-id="' + record.id + '"]').fadeTo("slow", 0.7, function() {
+          $(this).remove();
+        });
+      }
+    };
+  })();
+  //Applicaton ajax wrapper 
+  function appAjax(processingMsg, ajaxOptions) {
+    notificationMsg.show(processingMsg);
+    return webapi.safeAjax(ajaxOptions)
+      .fail(function(response) {
+        if (response.responseJSON) {
+          alert("Error: " + response.responseJSON.error.message)
+        } else {
+          alert("Error: Web API is not available... ")
+        }
+      }).always(notificationMsg.hide);
+  }
+  function loadRecords() {
+    return appAjax('Loading...', {
+      type: "GET",
+      url: "/_api/tasks",
+      //?$select=fullname,firstname,lastname,emailaddress1,telephone1",
+      contentType: "application/json"
+    });
+  }
+  function addSampleRecord() {
+    debugger;
+    //Sample data to create a record - change as appropriate
+    var recordObj = {
+      subject: "Type your subject",
+      scheduledend: new Date().toISOString(),
+      prioritycode: 2,
+      description: "Description"
+    };
+    appAjax('Adding...', {
+      type: "POST",
+      url: "/_api/tasks",
+      contentType: "application/json",
+      data: JSON.stringify(recordObj),
+      success: function(res, status, xhr) {
+        recordObj.id = xhr.getResponseHeader("entityid");
+        //recordObj.fullname = recordObj.firstname + " " + recordObj.lastname;
+        table.addRecord(recordObj);
+      }
+    });
+    return false;
+  }
+  function deleteRecord(recordObj) {
+    var response = confirm("Are you sure, you want to delete \"" + recordObj.name + "\" ?");
+    if (response == true) {
+      appAjax('Deleting...', {
+        type: "DELETE",
+        url: "/_api/tasks(" + recordObj.id + ")",
+        contentType: "application/json",
+        success: function(res) {
+          table.removeRecord(recordObj);
+        }
+      });
+    }
+    return false;
+  }
+  function updateRecordAttribute(col, recordObj) {
+    var attributeName = col.name,
+      value = recordObj[attributeName],
+      newValue = prompt("Please enter \"" + col.label + "\"", value);
+    if (newValue != null &amp;&amp; newValue !== value) {
+      appAjax('Updating...', {
+        type: "PUT",
+        url: "/_api/tasks(" + recordObj.id + ")/" + attributeName,
+        contentType: "application/json",
+        data: JSON.stringify({
+          "value": newValue
+        }),
+        success: function(res) {
+          table.updateRecord(attributeName, newValue, recordObj);
+        }
+      });
+    }
+    return false;
+  }
+  var table = new webAPIExampleTable({
+    columns: [{
+      name: 'subject',
+      label: 'Subject',
+      handler: updateRecordAttribute
+    }, {
+      name: 'Due Date',
+      label: 'scheduledend',
+      handler: updateRecordAttribute
+    }, {
+      name: 'prioritycode',
+      label: 'Priority',
+      handler: updateRecordAttribute
+    }, {
+      name: 'description',
+      label: 'Description',
+      handler: updateRecordAttribute
+    }],
+    data: [],
+    addHandler: addSampleRecord,
+    deleteHandler: deleteRecord
+  });
+  loadRecords().done(function(data) {
+    table.data = _.map(data.value, function(record){
+      record.id = record.activityid;
+      return record;
+    });
+    table.render($('#dataTable'));
+  });
+});
+&lt;/script&gt;
+&lt;div id="processingMsg" class="alert alert-warning" role="alert"&gt;&lt;/div&gt;
+&lt;div id="dataTable"&gt;&lt;/div&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;
+sample</searchcontent>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</powerpagecomponent>
