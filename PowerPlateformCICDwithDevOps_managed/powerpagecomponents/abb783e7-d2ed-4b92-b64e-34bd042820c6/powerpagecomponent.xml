@@ -1,0 +1,11 @@
+<powerpagecomponent powerpagecomponentid="abb783e7-d2ed-4b92-b64e-34bd042820c6">
+  <content>{"display_name":"Registration Disabled Message","type":756150001,"value":"&lt;div class=\"alert alert-warning\"&gt;\r\n  Registration is disabled\r\n&lt;/div&gt;"}</content>
+  <iscustomizable>1</iscustomizable>
+  <name>Account/Register/RegistrationDisabledMessage</name>
+  <powerpagecomponenttype>7</powerpagecomponenttype>
+  <powerpagesiteid>
+    <powerpagesiteid>6dc36fbc-1f20-4641-8e41-bf3fb5b9a72a</powerpagesiteid>
+  </powerpagesiteid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</powerpagecomponent>

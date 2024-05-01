@@ -1,0 +1,14 @@
+<powerpagecomponent powerpagecomponentid="6fae004c-8250-4aee-b560-e85ddf12336d">
+  <content>{"display_name":"Account/Signin/Terms And Conditions Heading","type":756150000,"value":"Terms and Conditions"}</content>
+  <iscustomizable>1</iscustomizable>
+  <name>Account/Signin/TermsAndConditionsHeading</name>
+  <powerpagecomponenttype>7</powerpagecomponenttype>
+  <powerpagesiteid>
+    <powerpagesiteid>6dc36fbc-1f20-4641-8e41-bf3fb5b9a72a</powerpagesiteid>
+  </powerpagesiteid>
+  <powerpagesitelanguageid>
+    <powerpagesitelanguageid>d1f8d8ba-31d1-4964-9d0a-be4e20c8ecd2</powerpagesitelanguageid>
+  </powerpagesitelanguageid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</powerpagecomponent>

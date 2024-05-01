@@ -1,0 +1,14 @@
+<powerpagecomponent powerpagecomponentid="842f390e-26f9-4868-8e5a-0516d1981be9">
+  <content>{"display_name":"Account/Register/External Authentication Failed","type":756150000,"value":"Sign in failed."}</content>
+  <iscustomizable>1</iscustomizable>
+  <name>Account/Register/ExternalAuthenticationFailed</name>
+  <powerpagecomponenttype>7</powerpagecomponenttype>
+  <powerpagesiteid>
+    <powerpagesiteid>6dc36fbc-1f20-4641-8e41-bf3fb5b9a72a</powerpagesiteid>
+  </powerpagesiteid>
+  <powerpagesitelanguageid>
+    <powerpagesitelanguageid>d1f8d8ba-31d1-4964-9d0a-be4e20c8ecd2</powerpagesitelanguageid>
+  </powerpagesitelanguageid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</powerpagecomponent>

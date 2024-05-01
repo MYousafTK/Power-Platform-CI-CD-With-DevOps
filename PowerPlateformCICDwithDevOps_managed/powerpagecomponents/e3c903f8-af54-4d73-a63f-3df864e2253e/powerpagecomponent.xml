@@ -1,0 +1,11 @@
+<powerpagecomponent powerpagecomponentid="e3c903f8-af54-4d73-a63f-3df864e2253e">
+  <content>{"source":"{% assign snippet_name = snippet_name %}\r\n{% if snippet_name %}\r\n {% editable snippets snippet_name type: 'html' %}\r\n{% endif %}"}</content>
+  <iscustomizable>1</iscustomizable>
+  <name>Snippet</name>
+  <powerpagecomponenttype>8</powerpagecomponenttype>
+  <powerpagesiteid>
+    <powerpagesiteid>6dc36fbc-1f20-4641-8e41-bf3fb5b9a72a</powerpagesiteid>
+  </powerpagesiteid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</powerpagecomponent>

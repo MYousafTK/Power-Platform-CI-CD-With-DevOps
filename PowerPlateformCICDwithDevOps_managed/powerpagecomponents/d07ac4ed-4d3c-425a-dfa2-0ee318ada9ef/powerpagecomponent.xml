@@ -1,0 +1,360 @@
+<powerpagecomponent powerpagecomponentid="d07ac4ed-4d3c-425a-dfa2-0ee318ada9ef">
+  <content>{
+  "filecontent": null,
+  "displayorder": 8,
+  "pagetemplateid": "9667a70c-0a7e-4925-8878-8f4802b5e7f9",
+  "parentpageid": "4a71b5a7-a619-d591-a558-267a1c70ad9e",
+  "partialurl": "Create-Task",
+  "isroot": false,
+  "rootwebpageid": "34787b00-9ef6-3d86-1fb8-d0cbd6c51028",
+  "title": "Create Task",
+  "summary": "&lt;p&gt;This is a sample landing page designed to be a starting point for your website&lt;/p&gt;",
+  "copy": "&lt;style&gt;\n    /* Adjust the styles as needed */\n\n    form {\n      max-width: 400px;\n      margin: 0 auto;\n      padding: 20px;\n      border: 1px solid #042B3C;\n      border-radius: 5px;\n      background-color: #FEFEFE;\n    }\n\n    label {\n      display: block;\n      margin-bottom: 5px;\n      font-weight: bold;\n      color: #042B3C;\n    }\n\n    input[type=\"text\"],\n    textarea,\n    input[type=\"datetime-local\"],\n    input[type=\"number\"] {\n      width: 100%;\n      padding: 8px;\n      border: 1px solid #042B3C;\n      border-radius: 4px;\n      box-sizing: border-box;\n      margin-bottom: 10px;\n      background-color: #FEFEFE;\n      color: #042B3C;\n    }\n\n    input[type=\"submit\"] {\n      background-color: #76BC21;\n      color: #FEFEFE;\n      padding: 10px 20px;\n      border: none;\n      border-radius: 4px;\n      cursor: pointer;\n      font-weight: bold;\n    }\n\n    input[type=\"submit\"]:hover {\n      background-color: #FF4712;\n    }\n    select{\n      width: 100%;\n      padding: 8px;\n      border: 1px solid #042B3C;\n      border-radius: 4px;\n      box-sizing: border-box;\n      margin-bottom: 10px;\n      background-color: #FEFEFE;\n      color: #042B3C;\n    }\n\n    #overlay {\n      display: none;\n      position: fixed;\n      width: 100%;\n      height: 100%;\n      top: 0;\n      left: 0;\n      background-color: rgba(87, 87, 87, 0.5);\n      z-index: 1000; /* Ensure it's above other content */\n  }\n\n  #spinner {\n      display: none;\n      position: fixed;\n      top: 50%;\n      left: 50%;\n      transform: translate(-50%, -50%);\n      z-index: 1001; /* Ensure it's above the overlay */\n      width: 40px;\n      height: 40px;\n      border: 4px solid rgba(0, 0, 0, 0.1);\n      border-left-color: #314bda;\n      border-radius: 50%;\n      animation: spin 1s linear infinite;\n  }\n  @keyframes spin {\n    to {\n      transform: rotate(360deg);\n    }\n  }\n&lt;/style&gt;\n\n&lt;div class=\"row sectionBlockLayout text-left\" style=\"display: flex; flex-wrap: wrap; margin: 0px; min-height: auto; padding: 8px;\"&gt;\n  &lt;div class=\"container\" style=\"display: flex; flex-wrap: wrap;\"&gt;\n    &lt;div class=\"col-md-12 columnBlockLayout\" style=\"flex-grow: 1; display: flex; flex-direction: column; min-width: 310px; word-break: break-word; padding: 5px; margin: 5px 0px;\"&gt;\n      &lt;!-- Spinner and overlay elements --&gt;\n      &lt;div id=\"overlay\" style=\"display: none;\"&gt;&lt;/div&gt;\n      &lt;div id=\"spinner\" style=\"display: none;\"&gt;&lt;/div&gt;\n\n      &lt;h1 style=\"text-align: left;\"&gt;WebAPI examples - Create and Read a record&lt;/h1&gt;\n    &lt;/div&gt;\n  &lt;/div&gt;\n&lt;/div&gt;\n&lt;div class=\"row sectionBlockLayout\" style=\"display: flex; flex-wrap: wrap; padding: 8px; margin: 0px; min-height: 15px;\"&gt;&lt;/div&gt;\n&lt;div class=\"row sectionBlockLayout text-left\" style=\"display: flex; flex-wrap: wrap; margin: 0px; min-height: auto; padding: 8px;\"&gt;\n  &lt;div class=\"container\" style=\"padding: 0px; display: flex; flex-wrap: wrap;\"&gt;\n    &lt;div class=\"col-md-12 columnBlockLayout\" style=\"flex-grow: 1; display: flex; flex-direction: column; min-width: 310px; word-break: break-word; margin: 5px 0px; padding: 5px;\"&gt;\n      {% fetchxml TaskData %}\n\n      &lt;fetch version=\"1.0\" output-format=\"xml-platform\" mapping=\"logical\" distinct=\"false\"&gt;\n        &lt;entity name=\"task\"&gt;\n          &lt;attribute name=\"subject\" /&gt;\n          &lt;attribute name=\"statecode\" /&gt;\n          &lt;attribute name=\"prioritycode\" /&gt;\n          &lt;attribute name=\"scheduledend\" /&gt;\n          &lt;attribute name=\"createdby\" /&gt;\n          &lt;attribute name=\"regardingobjectid\" /&gt;\n          &lt;attribute name=\"activityid\" /&gt;\n          &lt;order attribute=\"subject\" descending=\"false\" /&gt;\n          &lt;link-entity name=\"systemuser\" from=\"systemuserid\" to=\"createdby\" link-type=\"inner\" alias=\"systemuser\"&gt;\n            &lt;attribute name=\"fullname\" /&gt;\n            &lt;attribute name=\"businessunitid\" /&gt;\n            &lt;attribute name=\"title\" /&gt;\n            &lt;attribute name=\"address1_telephone1\" /&gt;\n            &lt;attribute name=\"positionid\" /&gt;\n            &lt;attribute name=\"systemuserid\" /&gt;\n          &lt;/link-entity&gt;\n        &lt;/entity&gt;\n      &lt;/fetch&gt;\n\n      {% endfetchxml %} {% fetchxml UserData %}\n\n      &lt;fetch version=\"1.0\" output-format=\"xml-platform\" mapping=\"logical\" no-lock=\"false\" distinct=\"true\"&gt;\n        &lt;entity name=\"contact\"&gt;\n          &lt;attribute name=\"entityimage_url\" /&gt;\n          &lt;attribute name=\"fullname\" /&gt;\n          &lt;order attribute=\"fullname\" descending=\"false\" /&gt;\n          &lt;attribute name=\"parentcustomerid\" /&gt;\n          &lt;attribute name=\"telephone1\" /&gt;\n          &lt;attribute name=\"emailaddress1\" /&gt;\n          &lt;attribute name=\"contactid\" /&gt;\n          &lt;attribute name=\"firstname\" /&gt;\n          &lt;attribute name=\"lastname\" /&gt;\n        &lt;/entity&gt;\n      &lt;/fetch&gt;\n\n      &lt;!-- &lt;fetch version=\"1.0\" output-format=\"xml-platform\" mapping=\"logical\" distinct=\"false\"&gt;\n        &lt;entity name=\"systemuser\"&gt;\n        &lt;attribute name=\"fullname\"/&gt;\n        &lt;attribute name=\"title\"/&gt;\n        &lt;attribute name=\"address1_telephone1\"/&gt;\n        &lt;attribute name=\"businessunitid\"/&gt;\n        &lt;attribute name=\"positionid\"/&gt;\n        &lt;attribute name=\"systemuserid\"/&gt;\n        &lt;order attribute=\"fullname\" descending=\"false\"/&gt;\n        &lt;/entity&gt;\n        &lt;/fetch&gt;--&gt;\n\n      {% endfetchxml %}\n\n      &lt;!--include PortalWebAPI helder for WebAPI--&gt;\n      {% include 'portalwebapihelper' %}\n\n      &lt;form id=\"myForm\"&gt;\n        &lt;input type=\"hidden\" id=\"selectedPriority\" name=\"selectedPriority\" /&gt;\n        &lt;label for=\"docs_subject\"&gt;Subject:&lt;/label&gt;\n        &lt;input type=\"text\" id=\"docs_subject\" name=\"docs_subject\" required /&gt;&lt;br /&gt;\n\n        &lt;label for=\"docs_description\"&gt;Description:&lt;/label&gt;\n        &lt;textarea id=\"docs_description\" name=\"docs_description\"&gt;&lt;/textarea&gt;&lt;br /&gt;\n\n        &lt;label for=\"docs_duedate\"&gt;Due Date:&lt;/label&gt;\n        &lt;input type=\"datetime-local\" id=\"docs_duedate\" name=\"docs_duedate\" required /&gt;&lt;br /&gt;\n\n        &lt;label for=\"docs_priority\"&gt;Priority:&lt;/label&gt;\n\n        &lt;select id=\"prioritydrop\" name=\"priority\"&gt;\n          {% assign uniqueLabels = \"\" %} {% for result in TaskData.results.entities %} {% capture label %}{{ result.prioritycode.Label }}{% endcapture %} {% unless uniqueLabels contains label %}\n          &lt;option value=\"{{ label }}\"&gt;{{ label }}&lt;/option&gt;\n          {% assign uniqueLabels = uniqueLabels | append: label | append: \"|\" %} {% endunless %} {% endfor %}\n        &lt;/select&gt;\n\n        &lt;select id=\"priorityvalue\" name=\"priorityvalue\" style=\"display: none;\"&gt;\n          {% assign uniqueValues = \"\" %} {% for result in TaskData.results.entities %} {% capture value %}{{ result.prioritycode.Value }}{% endcapture %} {% unless uniqueValues contains value %}\n          &lt;option value=\"{{ value }}\"&gt;{{ value }}&lt;/option&gt;\n          {% assign uniqueValues = uniqueValues | append: value | append: \"|\" %} {% endunless %} {% endfor %}\n        &lt;/select&gt;\n\n        &lt;label for=\"assignedto\"&gt;Assigned to:&lt;/label&gt;\n        &lt;select id=\"assignedto\" name=\"assignedto\"&gt;\n          {% for result in UserData.results.entities %}\n          &lt;option value=\"{{ result.fullname }}\"&gt;{{ result.fullname }}&lt;/option&gt;\n          {% endfor %}\n        &lt;/select&gt;\n\n        &lt;select id=\"assignedtoid\" name=\"assignedto\" style=\"display: none;\"&gt;\n          {% for result in UserData.results.entities %}\n          &lt;option value=\"{{ result.contactid }}\"&gt;{{ result.contactid }}&lt;/option&gt;\n          {% endfor %}\n        &lt;/select&gt;\n\n        &lt;!--    &lt;select id=\"prioritydrop\" name=\"priority\" &gt;\n          {% for result in TaskData.results.entities %}\n          &lt;option value=\"{{ result.prioritycode.Label }}\"&gt;{{ result.prioritycode.Label }}&lt;/option&gt;\n          {% endfor %}\n        &lt;/select&gt;--&gt;\n\n        &lt;input type=\"submit\" value=\"Submit\" /&gt;\n      &lt;/form&gt;\n    &lt;/div&gt;\n  &lt;/div&gt;\n&lt;/div&gt;\n\n&lt;script&gt;\n  $(document).ready(function() {\n\n    $('#myForm').submit(function(event) {\n    debugger;\n      event.preventDefault(); // Prevent the default form submission\n      console.log('Showing overlay and spinner...');\n      $('#overlay').show();\n      $('#spinner').show();\n\n      // Create a new record object from form data\n      var record ={\n      \"subject\" : $('#docs_subject').val(),\n      \"description\" : $('#docs_description').val(),\n      \"scheduledend\" : $('#docs_duedate').val(),\n      //\"cr6c9_ContactLookup_Task@odata.bind\" : \"/contacts({{user.id}})\"\n      }\n    /*  var record = {};\n      record.subject = $('#docs_subject').val(); // Text\n      record.description = $('#docs_description').val(); // Multiline Text\n      record.scheduledend = $('#docs_duedate').val(); // Date Time\n      record[\"cr6c9_Assignedto@odata.bind\"] = \"/systemusers(cd11abca-e099-ed11-aad1-000d3ab6d601)\";*/\n\n      // Get the selected priority value from the dropdown\n      var selectedPriorityLabel = $('#prioritydrop').val();\n\n      // Map the selected label to its corresponding integer value\n      var selectedPriorityValue = mapPriorityLabelToValue(selectedPriorityLabel);\n\n      // Assign the value to the prioritycode property of the record\n      record.prioritycode = selectedPriorityValue; // Whole Number\n\n\n      var selectedContactLabel = $('#assignedto').val();\n\n  // Map the selected user to its corresponding guid value\n  var selectedContactGuid = mapContactLabelToGuid(selectedContactLabel);\n\n  // Assign the value to the assignedto property of the record\n  record[\"cr6c9_ContactLookup_Task@odata.bind\"] = \"/contacts(\"+ selectedContactGuid +\")\"; // Guid\n\n      // Call the WebAPI helper function to create the record\n      webapi.safeAjax({\n        type: \"POST\",\n        contentType: \"application/json\",\n        url: \"/_api/tasks\",\n        data: JSON.stringify(record),\n        success: function (data, textStatus, xhr) {\n          var newId = xhr.getResponseHeader(\"entityid\");\n          console.log(newId);\n          // Reset the form after successful submission\n          $('#myForm')[0].reset();\n          hideOverlayAndSpinner();\n\n\n        },\n        error: function (xhr, textStatus, errorThrown) {\n          console.log(xhr);\n          alert(xhr)\n          hideOverlayAndSpinner();\n        }\n      });\n    });\n  });\n\n  // Function to map priority label to integer value\n  function mapPriorityLabelToValue(label) {\n\n    var labelToValueMap = {};\n    //debugger;\n    // Iterate over each option in the priority dropdowns and build the mapping object\n    $('#prioritydrop option').each(function(index) {\n      var labelText = $(this).text();\n      var value = $('#priorityvalue option').eq(index).val(); // Get value from corresponding option in #priorityvalue\n      labelToValueMap[labelText] = value;\n    });\n\n    // Check if the label exists in the mapping object and return its corresponding value\n    if (label in labelToValueMap) {\n      return labelToValueMap[label];\n    } else {\n      return 1; // Default value if label not found\n    }\n  }\n\n  // Function to map Contact label to guid value\n  function mapContactLabelToGuid(label) {\n    debugger;\n    var labelToGuidMap = {};\n    //debugger;\n    // Iterate over each option in the assignedto dropdowns and build the mapping object\n    $('#assignedto option').each(function(index) {\n      var ContactlabelText = $(this).text();\n      var value = $('#assignedtoid option').eq(index).val(); // Get value from corresponding option in #priorityvalue\n      labelToGuidMap[ContactlabelText] = value;\n    });\n\n    // Check if the label exists in the mapping object and return its corresponding value\n    if (label in labelToGuidMap) {\n      return labelToGuidMap[label];\n    } else {\n      return null; // Default value if label not found\n    }\n  }\n\n  function hideOverlayAndSpinner() {\n      console.log('Hiding overlay and spinner...');\n      $('#overlay').hide();\n      $('#spinner').hide();\n  }\n&lt;/script&gt;\n&lt;div id=\"i8e76h\" class=\"row sectionBlockLayout text-start\" style=\"display: flex; flex-wrap: wrap; margin: 0px; min-height: auto; padding: 8px;\"&gt;\n  &lt;div id=\"i0dtkz\" class=\"container\" style=\"padding: 0px; display: flex; flex-wrap: wrap;\"&gt;&lt;div class=\"col-lg-12 columnBlockLayout\" style=\"flex-grow: 1; display: flex; flex-direction: column; min-width: 250px; word-break: break-word;\"&gt;&lt;/div&gt;&lt;/div&gt;\n&lt;/div&gt;\n&lt;div id=\"ib92oe\" class=\"row sectionBlockLayout text-start\" style=\"display: flex; flex-wrap: wrap; margin: 0px; min-height: auto; padding: 8px;\"&gt;\n  &lt;div class=\"container\" id=\"i2969j\" style=\"padding: 0px; display: flex; flex-wrap: wrap;\"&gt;&lt;div class=\"col-lg-12 columnBlockLayout\" style=\"flex-grow: 1; display: flex; flex-direction: column; min-width: 250px; word-break: break-word;\"&gt;&lt;/div&gt;&lt;/div&gt;\n&lt;/div&gt;\n",
+  "publishingstateid": "9b9e528b-c84c-4cb4-afaa-56d94d4eb921",
+  "enablerating": false,
+  "enabletracking": false,
+  "excludefromsearch": false,
+  "hiddenfromsitemap": true,
+  "sharedpageconfiguration": false,
+  "feedbackpolicy": 756150000
+}</content>
+  <iscustomizable>1</iscustomizable>
+  <name>Create Task</name>
+  <powerpagecomponenttype>2</powerpagecomponenttype>
+  <powerpagesiteid>
+    <powerpagesiteid>6dc36fbc-1f20-4641-8e41-bf3fb5b9a72a</powerpagesiteid>
+  </powerpagesiteid>
+  <powerpagesitelanguageid>
+    <powerpagesitelanguageid>d1f8d8ba-31d1-4964-9d0a-be4e20c8ecd2</powerpagesitelanguageid>
+  </powerpagesitelanguageid>
+  <searchcontent>Create Task&lt;style&gt;
+    /* Adjust the styles as needed */
+
+    form {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #042B3C;
+      border-radius: 5px;
+      background-color: #FEFEFE;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #042B3C;
+    }
+
+    input[type="text"],
+    textarea,
+    input[type="datetime-local"],
+    input[type="number"] {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #042B3C;
+      border-radius: 4px;
+      box-sizing: border-box;
+      margin-bottom: 10px;
+      background-color: #FEFEFE;
+      color: #042B3C;
+    }
+
+    input[type="submit"] {
+      background-color: #76BC21;
+      color: #FEFEFE;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #FF4712;
+    }
+    select{
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #042B3C;
+      border-radius: 4px;
+      box-sizing: border-box;
+      margin-bottom: 10px;
+      background-color: #FEFEFE;
+      color: #042B3C;
+    }
+
+    #overlay {
+      display: none;
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background-color: rgba(87, 87, 87, 0.5);
+      z-index: 1000; /* Ensure it's above other content */
+  }
+
+  #spinner {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1001; /* Ensure it's above the overlay */
+      width: 40px;
+      height: 40px;
+      border: 4px solid rgba(0, 0, 0, 0.1);
+      border-left-color: #314bda;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+  }
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+&lt;/style&gt;
+
+&lt;div class="row sectionBlockLayout text-left" style="display: flex; flex-wrap: wrap; margin: 0px; min-height: auto; padding: 8px;"&gt;
+  &lt;div class="container" style="display: flex; flex-wrap: wrap;"&gt;
+    &lt;div class="col-md-12 columnBlockLayout" style="flex-grow: 1; display: flex; flex-direction: column; min-width: 310px; word-break: break-word; padding: 5px; margin: 5px 0px;"&gt;
+      &lt;!-- Spinner and overlay elements --&gt;
+      &lt;div id="overlay" style="display: none;"&gt;&lt;/div&gt;
+      &lt;div id="spinner" style="display: none;"&gt;&lt;/div&gt;
+
+      &lt;h1 style="text-align: left;"&gt;WebAPI examples - Create and Read a record&lt;/h1&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="row sectionBlockLayout" style="display: flex; flex-wrap: wrap; padding: 8px; margin: 0px; min-height: 15px;"&gt;&lt;/div&gt;
+&lt;div class="row sectionBlockLayout text-left" style="display: flex; flex-wrap: wrap; margin: 0px; min-height: auto; padding: 8px;"&gt;
+  &lt;div class="container" style="padding: 0px; display: flex; flex-wrap: wrap;"&gt;
+    &lt;div class="col-md-12 columnBlockLayout" style="flex-grow: 1; display: flex; flex-direction: column; min-width: 310px; word-break: break-word; margin: 5px 0px; padding: 5px;"&gt;
+      {% fetchxml TaskData %}
+
+      &lt;fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false"&gt;
+        &lt;entity name="task"&gt;
+          &lt;attribute name="subject" /&gt;
+          &lt;attribute name="statecode" /&gt;
+          &lt;attribute name="prioritycode" /&gt;
+          &lt;attribute name="scheduledend" /&gt;
+          &lt;attribute name="createdby" /&gt;
+          &lt;attribute name="regardingobjectid" /&gt;
+          &lt;attribute name="activityid" /&gt;
+          &lt;order attribute="subject" descending="false" /&gt;
+          &lt;link-entity name="systemuser" from="systemuserid" to="createdby" link-type="inner" alias="systemuser"&gt;
+            &lt;attribute name="fullname" /&gt;
+            &lt;attribute name="businessunitid" /&gt;
+            &lt;attribute name="title" /&gt;
+            &lt;attribute name="address1_telephone1" /&gt;
+            &lt;attribute name="positionid" /&gt;
+            &lt;attribute name="systemuserid" /&gt;
+          &lt;/link-entity&gt;
+        &lt;/entity&gt;
+      &lt;/fetch&gt;
+
+      {% endfetchxml %} {% fetchxml UserData %}
+
+      &lt;fetch version="1.0" output-format="xml-platform" mapping="logical" no-lock="false" distinct="true"&gt;
+        &lt;entity name="contact"&gt;
+          &lt;attribute name="entityimage_url" /&gt;
+          &lt;attribute name="fullname" /&gt;
+          &lt;order attribute="fullname" descending="false" /&gt;
+          &lt;attribute name="parentcustomerid" /&gt;
+          &lt;attribute name="telephone1" /&gt;
+          &lt;attribute name="emailaddress1" /&gt;
+          &lt;attribute name="contactid" /&gt;
+          &lt;attribute name="firstname" /&gt;
+          &lt;attribute name="lastname" /&gt;
+        &lt;/entity&gt;
+      &lt;/fetch&gt;
+
+      &lt;!-- &lt;fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false"&gt;
+        &lt;entity name="systemuser"&gt;
+        &lt;attribute name="fullname"/&gt;
+        &lt;attribute name="title"/&gt;
+        &lt;attribute name="address1_telephone1"/&gt;
+        &lt;attribute name="businessunitid"/&gt;
+        &lt;attribute name="positionid"/&gt;
+        &lt;attribute name="systemuserid"/&gt;
+        &lt;order attribute="fullname" descending="false"/&gt;
+        &lt;/entity&gt;
+        &lt;/fetch&gt;--&gt;
+
+      {% endfetchxml %}
+
+      &lt;!--include PortalWebAPI helder for WebAPI--&gt;
+      {% include 'portalwebapihelper' %}
+
+      &lt;form id="myForm"&gt;
+        &lt;input type="hidden" id="selectedPriority" name="selectedPriority" /&gt;
+        &lt;label for="docs_subject"&gt;Subject:&lt;/label&gt;
+        &lt;input type="text" id="docs_subject" name="docs_subject" required /&gt;&lt;br /&gt;
+
+        &lt;label for="docs_description"&gt;Description:&lt;/label&gt;
+        &lt;textarea id="docs_description" name="docs_description"&gt;&lt;/textarea&gt;&lt;br /&gt;
+
+        &lt;label for="docs_duedate"&gt;Due Date:&lt;/label&gt;
+        &lt;input type="datetime-local" id="docs_duedate" name="docs_duedate" required /&gt;&lt;br /&gt;
+
+        &lt;label for="docs_priority"&gt;Priority:&lt;/label&gt;
+
+        &lt;select id="prioritydrop" name="priority"&gt;
+          {% assign uniqueLabels = "" %} {% for result in TaskData.results.entities %} {% capture label %}{{ result.prioritycode.Label }}{% endcapture %} {% unless uniqueLabels contains label %}
+          &lt;option value="{{ label }}"&gt;{{ label }}&lt;/option&gt;
+          {% assign uniqueLabels = uniqueLabels | append: label | append: "|" %} {% endunless %} {% endfor %}
+        &lt;/select&gt;
+
+        &lt;select id="priorityvalue" name="priorityvalue" style="display: none;"&gt;
+          {% assign uniqueValues = "" %} {% for result in TaskData.results.entities %} {% capture value %}{{ result.prioritycode.Value }}{% endcapture %} {% unless uniqueValues contains value %}
+          &lt;option value="{{ value }}"&gt;{{ value }}&lt;/option&gt;
+          {% assign uniqueValues = uniqueValues | append: value | append: "|" %} {% endunless %} {% endfor %}
+        &lt;/select&gt;
+
+        &lt;label for="assignedto"&gt;Assigned to:&lt;/label&gt;
+        &lt;select id="assignedto" name="assignedto"&gt;
+          {% for result in UserData.results.entities %}
+          &lt;option value="{{ result.fullname }}"&gt;{{ result.fullname }}&lt;/option&gt;
+          {% endfor %}
+        &lt;/select&gt;
+
+        &lt;select id="assignedtoid" name="assignedto" style="display: none;"&gt;
+          {% for result in UserData.results.entities %}
+          &lt;option value="{{ result.contactid }}"&gt;{{ result.contactid }}&lt;/option&gt;
+          {% endfor %}
+        &lt;/select&gt;
+
+        &lt;!--    &lt;select id="prioritydrop" name="priority" &gt;
+          {% for result in TaskData.results.entities %}
+          &lt;option value="{{ result.prioritycode.Label }}"&gt;{{ result.prioritycode.Label }}&lt;/option&gt;
+          {% endfor %}
+        &lt;/select&gt;--&gt;
+
+        &lt;input type="submit" value="Submit" /&gt;
+      &lt;/form&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+  $(document).ready(function() {
+
+    $('#myForm').submit(function(event) {
+    debugger;
+      event.preventDefault(); // Prevent the default form submission
+      console.log('Showing overlay and spinner...');
+      $('#overlay').show();
+      $('#spinner').show();
+
+      // Create a new record object from form data
+      var record ={
+      "subject" : $('#docs_subject').val(),
+      "description" : $('#docs_description').val(),
+      "scheduledend" : $('#docs_duedate').val(),
+      //"cr6c9_ContactLookup_Task@odata.bind" : "/contacts({{user.id}})"
+      }
+    /*  var record = {};
+      record.subject = $('#docs_subject').val(); // Text
+      record.description = $('#docs_description').val(); // Multiline Text
+      record.scheduledend = $('#docs_duedate').val(); // Date Time
+      record["cr6c9_Assignedto@odata.bind"] = "/systemusers(cd11abca-e099-ed11-aad1-000d3ab6d601)";*/
+
+      // Get the selected priority value from the dropdown
+      var selectedPriorityLabel = $('#prioritydrop').val();
+
+      // Map the selected label to its corresponding integer value
+      var selectedPriorityValue = mapPriorityLabelToValue(selectedPriorityLabel);
+
+      // Assign the value to the prioritycode property of the record
+      record.prioritycode = selectedPriorityValue; // Whole Number
+
+
+      var selectedContactLabel = $('#assignedto').val();
+
+  // Map the selected user to its corresponding guid value
+  var selectedContactGuid = mapContactLabelToGuid(selectedContactLabel);
+
+  // Assign the value to the assignedto property of the record
+  record["cr6c9_ContactLookup_Task@odata.bind"] = "/contacts("+ selectedContactGuid +")"; // Guid
+
+      // Call the WebAPI helper function to create the record
+      webapi.safeAjax({
+        type: "POST",
+        contentType: "application/json",
+        url: "/_api/tasks",
+        data: JSON.stringify(record),
+        success: function (data, textStatus, xhr) {
+          var newId = xhr.getResponseHeader("entityid");
+          console.log(newId);
+          // Reset the form after successful submission
+          $('#myForm')[0].reset();
+          hideOverlayAndSpinner();
+
+
+        },
+        error: function (xhr, textStatus, errorThrown) {
+          console.log(xhr);
+          alert(xhr)
+          hideOverlayAndSpinner();
+        }
+      });
+    });
+  });
+
+  // Function to map priority label to integer value
+  function mapPriorityLabelToValue(label) {
+
+    var labelToValueMap = {};
+    //debugger;
+    // Iterate over each option in the priority dropdowns and build the mapping object
+    $('#prioritydrop option').each(function(index) {
+      var labelText = $(this).text();
+      var value = $('#priorityvalue option').eq(index).val(); // Get value from corresponding option in #priorityvalue
+      labelToValueMap[labelText] = value;
+    });
+
+    // Check if the label exists in the mapping object and return its corresponding value
+    if (label in labelToValueMap) {
+      return labelToValueMap[label];
+    } else {
+      return 1; // Default value if label not found
+    }
+  }
+
+  // Function to map Contact label to guid value
+  function mapContactLabelToGuid(label) {
+    debugger;
+    var labelToGuidMap = {};
+    //debugger;
+    // Iterate over each option in the assignedto dropdowns and build the mapping object
+    $('#assignedto option').each(function(index) {
+      var ContactlabelText = $(this).text();
+      var value = $('#assignedtoid option').eq(index).val(); // Get value from corresponding option in #priorityvalue
+      labelToGuidMap[ContactlabelText] = value;
+    });
+
+    // Check if the label exists in the mapping object and return its corresponding value
+    if (label in labelToGuidMap) {
+      return labelToGuidMap[label];
+    } else {
+      return null; // Default value if label not found
+    }
+  }
+
+  function hideOverlayAndSpinner() {
+      console.log('Hiding overlay and spinner...');
+      $('#overlay').hide();
+      $('#spinner').hide();
+  }
+&lt;/script&gt;
+&lt;div id="i8e76h" class="row sectionBlockLayout text-start" style="display: flex; flex-wrap: wrap; margin: 0px; min-height: auto; padding: 8px;"&gt;
+  &lt;div id="i0dtkz" class="container" style="padding: 0px; display: flex; flex-wrap: wrap;"&gt;&lt;div class="col-lg-12 columnBlockLayout" style="flex-grow: 1; display: flex; flex-direction: column; min-width: 250px; word-break: break-word;"&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id="ib92oe" class="row sectionBlockLayout text-start" style="display: flex; flex-wrap: wrap; margin: 0px; min-height: auto; padding: 8px;"&gt;
+  &lt;div class="container" id="i2969j" style="padding: 0px; display: flex; flex-wrap: wrap;"&gt;&lt;div class="col-lg-12 columnBlockLayout" style="flex-grow: 1; display: flex; flex-direction: column; min-width: 250px; word-break: break-word;"&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;
+Create Task</searchcontent>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</powerpagecomponent>

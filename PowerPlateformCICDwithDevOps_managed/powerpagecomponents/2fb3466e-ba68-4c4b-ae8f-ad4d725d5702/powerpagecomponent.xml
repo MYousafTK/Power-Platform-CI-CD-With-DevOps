@@ -1,0 +1,12 @@
+<powerpagecomponent powerpagecomponentid="2fb3466e-ba68-4c4b-ae8f-ad4d725d5702">
+  <content>{"enablerating":false,"enabletracking":false,"excludefromsearch":false,"feedbackpolicy":756150000,"hiddenfromsitemap":false,"isroot":true,"pagetemplateid":"9667a70c-0a7e-4925-8878-8f4802b5e7f9","parentpageid":"7f86bc5a-e9eb-4558-a54a-aff1f37057aa","partialurl":"default-offline-page","publishingstateid":"9b9e528b-c84c-4cb4-afaa-56d94d4eb921","sharedpageconfiguration":false,"title":"Default Offline Page"}</content>
+  <iscustomizable>1</iscustomizable>
+  <name>Default Offline Page</name>
+  <powerpagecomponenttype>2</powerpagecomponenttype>
+  <powerpagesiteid>
+    <powerpagesiteid>6dc36fbc-1f20-4641-8e41-bf3fb5b9a72a</powerpagesiteid>
+  </powerpagesiteid>
+  <searchcontent>Default Offline PageDefault Offline Page</searchcontent>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</powerpagecomponent>

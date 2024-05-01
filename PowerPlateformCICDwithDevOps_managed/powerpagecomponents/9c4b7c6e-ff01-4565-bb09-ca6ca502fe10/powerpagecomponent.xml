@@ -1,0 +1,14 @@
+<powerpagecomponent powerpagecomponentid="9c4b7c6e-ff01-4565-bb09-ca6ca502fe10">
+  <content>{"display_name":"Profile/SecurityNav/Set Password","type":756150000}</content>
+  <iscustomizable>1</iscustomizable>
+  <name>Profile/SecurityNav/SetPassword</name>
+  <powerpagecomponenttype>7</powerpagecomponenttype>
+  <powerpagesiteid>
+    <powerpagesiteid>6dc36fbc-1f20-4641-8e41-bf3fb5b9a72a</powerpagesiteid>
+  </powerpagesiteid>
+  <powerpagesitelanguageid>
+    <powerpagesitelanguageid>d1f8d8ba-31d1-4964-9d0a-be4e20c8ecd2</powerpagesitelanguageid>
+  </powerpagesitelanguageid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</powerpagecomponent>

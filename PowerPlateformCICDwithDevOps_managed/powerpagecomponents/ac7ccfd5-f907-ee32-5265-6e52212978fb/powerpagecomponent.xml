@@ -1,0 +1,30 @@
+<powerpagecomponent powerpagecomponentid="ac7ccfd5-f907-ee32-5265-6e52212978fb">
+  <content>{
+  "filecontent": null,
+  "displayorder": 3,
+  "customcss": "",
+  "customjavascript": "",
+  "pagetemplateid": "9667a70c-0a7e-4925-8878-8f4802b5e7f9",
+  "parentpageid": "4a71b5a7-a619-d591-a558-267a1c70ad9e",
+  "partialurl": "Task-List",
+  "isroot": true,
+  "title": "Task List",
+  "summary": "&lt;p&gt;This is a sample landing page designed to be a starting point for your website&lt;/p&gt;",
+  "copy": "",
+  "publishingstateid": "9b9e528b-c84c-4cb4-afaa-56d94d4eb921",
+  "enablerating": false,
+  "enabletracking": false,
+  "excludefromsearch": false,
+  "hiddenfromsitemap": true,
+  "sharedpageconfiguration": false
+}</content>
+  <iscustomizable>1</iscustomizable>
+  <name>Task List</name>
+  <powerpagecomponenttype>2</powerpagecomponenttype>
+  <powerpagesiteid>
+    <powerpagesiteid>6dc36fbc-1f20-4641-8e41-bf3fb5b9a72a</powerpagesiteid>
+  </powerpagesiteid>
+  <searchcontent>Task ListTask List</searchcontent>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</powerpagecomponent>

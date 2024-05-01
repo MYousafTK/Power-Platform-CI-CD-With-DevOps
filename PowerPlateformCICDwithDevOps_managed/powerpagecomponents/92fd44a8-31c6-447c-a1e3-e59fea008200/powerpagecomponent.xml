@@ -1,0 +1,14 @@
+<powerpagecomponent powerpagecomponentid="92fd44a8-31c6-447c-a1e3-e59fea008200">
+  <content>{"display_name":"Search/Facet/Rating","type":756150000,"value":"Rating"}</content>
+  <iscustomizable>1</iscustomizable>
+  <name>Search/Facet/Rating</name>
+  <powerpagecomponenttype>7</powerpagecomponenttype>
+  <powerpagesiteid>
+    <powerpagesiteid>6dc36fbc-1f20-4641-8e41-bf3fb5b9a72a</powerpagesiteid>
+  </powerpagesiteid>
+  <powerpagesitelanguageid>
+    <powerpagesitelanguageid>d1f8d8ba-31d1-4964-9d0a-be4e20c8ecd2</powerpagesitelanguageid>
+  </powerpagesitelanguageid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</powerpagecomponent>
