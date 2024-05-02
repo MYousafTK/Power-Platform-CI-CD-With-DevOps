@@ -1,0 +1,63 @@
+# 'Allow scripts to access the OAuth token' was selected in pipeline.  Add the following YAML to any steps requiring access:
+#       env:
+#           MY_ACCESS_TOKEN: $(System.AccessToken)
+# Variable 'SolutionName' was defined in the Variables tab
+jobs:
+- job: Job_1
+  displayName: Agent job 1
+  pool:
+    vmImage: windows-2019
+  steps:
+  - checkout: self
+    fetchDepth: 1
+    persistCredentials: True
+  - task: microsoft-IsvExpTools.PowerPlatform-BuildTools.tool-installer.PowerPlatformToolInstaller@2
+    displayName: 'Power Platform Tool Installer '
+  - task: microsoft-IsvExpTools.PowerPlatform-BuildTools.export-solution.PowerPlatformExportSolution@2
+    displayName: 'Power Platform Export Solution '
+    inputs:
+      authenticationType: PowerPlatformSPN
+      PowerPlatformSPN: 5f249e1e-2a49-4d72-a693-b9f81573714e
+      SolutionName: $(SolutionName)
+      SolutionOutputFile: $(Build.ArtifactStagingDirectory)\$(SolutionName)_LevisManaged.zip
+      Managed: true
+  - task: microsoft-IsvExpTools.PowerPlatform-BuildTools.unpack-solution.PowerPlatformUnpackSolution@2
+    displayName: 'Power Platform Unpack Solution '
+    inputs:
+      SolutionInputFile: $(Build.ArtifactStagingDirectory)\$(SolutionName)_LevisManaged.zip
+      SolutionTargetFolder: $(Build.SourcesDirectory)\$(SolutionName)_LevisManaged
+      SolutionType: Managed
+  - task: CmdLine@2
+    displayName: Command Line Script
+    inputs:
+      script: >2-
+
+        echo commit all changes
+
+        git config user.email "muhammad.yousaf@triplek.tech"
+
+        git config user.name "Muhammad Yousaf"
+
+        WorkingDirectory:$(System.DefaultWorkingDirectory)
+
+        git init
+
+        git checkout -b main
+
+        git add --all
+
+        git commit -m "Added the solution"
+
+        git pull origin main
+
+        git -c http.extraheader="AUTHORIZATION: bearer $(System.AccessToken)" push origin main
+  - task: PublishBuildArtifacts@1
+    displayName: 'Publish Artifact: Levisdrop'
+    inputs:
+      ArtifactName: Levisdrop
+  - task: PublishPipelineArtifact@1
+    displayName: Publish Pipeline Artifact
+    inputs:
+      path: DeploymentSettings
+      artifactName: DeployementSettings
+...

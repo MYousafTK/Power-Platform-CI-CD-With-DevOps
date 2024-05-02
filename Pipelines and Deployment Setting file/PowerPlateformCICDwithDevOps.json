@@ -1,0 +1,51 @@
+{
+  "EnvironmentVariables": [
+    {
+      "SchemaName": "tk_DevEnvVar",
+      "Value": "",
+      "Name": {
+        "Default": "Dev Env Var",
+        "ByLcid": {
+          "1033": "Dev Env Var"
+        }
+      }
+    },
+    {
+      "SchemaName": "tk_TestEnvVar",
+      "Value": "",
+      "Name": {
+        "Default": "Test Env Var",
+        "ByLcid": {
+          "1033": "Test Env Var"
+        }
+      }
+    }
+  ],
+  "ConnectionReferences": [
+    {
+      "LogicalName": "new_sharedcommondataserviceforapps_46432",
+      "ConnectionId": "",
+      "ConnectorId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+    },
+    {
+      "LogicalName": "tk_office365users",
+      "ConnectionId": "",
+      "ConnectorId": "/providers/Microsoft.PowerApps/apis/shared_office365users"
+    },
+    {
+      "LogicalName": "tk_sharedapprovals_74c68",
+      "ConnectionId": "",
+      "ConnectorId": "/providers/Microsoft.PowerApps/apis/shared_approvals"
+    },
+    {
+      "LogicalName": "tk_sharedoffice365_8a61c",
+      "ConnectionId": "",
+      "ConnectorId": "/providers/Microsoft.PowerApps/apis/shared_office365"
+    },
+    {
+      "LogicalName": "tk_SharePointfca6b06cb5384aff9f0ef75cfde6e478",
+      "ConnectionId": "",
+      "ConnectorId": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline"
+    }
+  ]
+}

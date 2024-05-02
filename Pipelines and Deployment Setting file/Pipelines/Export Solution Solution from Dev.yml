@@ -1,0 +1,89 @@
+# 'Allow scripts to access the OAuth token' was selected in pipeline.  Add the following YAML to any steps requiring access:
+#       env:
+#           MY_ACCESS_TOKEN: $(System.AccessToken)
+# Variable 'SolutionName' was defined in the Variables tab
+jobs:
+- job: Job_1
+  displayName: Dev Export Agent
+  pool:
+    vmImage: windows-2019
+  steps:
+  - checkout: self
+    fetchDepth: 1
+    persistCredentials: True
+  - task: microsoft-IsvExpTools.PowerPlatform-BuildTools.tool-installer.PowerPlatformToolInstaller@2
+    displayName: 'Power Platform Tool Installer '
+  - task: microsoft-IsvExpTools.PowerPlatform-BuildTools.whoami.PowerPlatformWhoAmi@2
+    displayName: 'Power Platform WhoAmI '
+    inputs:
+      authenticationType: PowerPlatformSPN
+      PowerPlatformSPN: 92245fd0-e27d-4c1b-b28a-6b55a73e6e02
+  - task: microsoft-IsvExpTools.PowerPlatform-BuildTools.set-solution-version.PowerPlatformSetSolutionVersion@2
+    displayName: 'Power Platform Set Solution Version '
+    inputs:
+      authenticationType: PowerPlatformSPN
+      PowerPlatformSPN: 5f249e1e-2a49-4d72-a693-b9f81573714e
+      SolutionName: $(SolutionName)
+      SolutionVersionNumber: 1.0.0.$(Build.BuildNumber)
+  - task: microsoft-IsvExpTools.PowerPlatform-BuildTools.export-solution.PowerPlatformExportSolution@2
+    displayName: Power Platform Export Solution  UnManaged
+    inputs:
+      authenticationType: PowerPlatformSPN
+      PowerPlatformSPN: 5f249e1e-2a49-4d72-a693-b9f81573714e
+      SolutionName: $(SolutionName)
+      SolutionOutputFile: $(Build.ArtifactStagingDirectory)\$(SolutionName).zip
+  - task: microsoft-IsvExpTools.PowerPlatform-BuildTools.export-solution.PowerPlatformExportSolution@2
+    displayName: Power Platform Export Solution Managed
+    inputs:
+      authenticationType: PowerPlatformSPN
+      PowerPlatformSPN: 5f249e1e-2a49-4d72-a693-b9f81573714e
+      SolutionName: $(SolutionName)
+      SolutionOutputFile: $(Build.ArtifactStagingDirectory)\$(SolutionName)_Managed.zip
+      Managed: true
+  - task: microsoft-IsvExpTools.PowerPlatform-BuildTools.unpack-solution.PowerPlatformUnpackSolution@2
+    displayName: Power Platform Unpack Solution Managed
+    inputs:
+      SolutionInputFile: $(Build.ArtifactStagingDirectory)\$(SolutionName).zip
+      SolutionTargetFolder: $(Build.SourcesDirectory)\$(SolutionName)
+      SolutionType: Both
+  - task: CmdLine@2
+    displayName: Command Line Script
+    inputs:
+      script: >2-
+
+        cd $(Build.SourcesDirectory)
+
+
+        # Set a per-project email address and username
+
+        git config user.email "muhammad.yousaf@triplek.tech"
+
+        git config user.name "Muhammad Yousaf"
+
+
+        # Navigate to the main branch
+
+        git checkout -B main
+
+
+        # Update the local version of a repository from a remote
+
+        git pull
+
+
+        # Add all files to the Git repository
+
+        git add --all
+
+
+        # Record the changes in the repository
+
+        git commit -m "Added the solution to Dev"
+
+
+        git pull origin main
+
+        # Authenticate against a git repository in a build process
+
+        git -c http.extraheader="AUTHORIZATION: bearer $(System.AccessToken)" push origin main
+...
