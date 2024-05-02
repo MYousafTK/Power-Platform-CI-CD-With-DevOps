@@ -1,0 +1,53 @@
+<powerpagecomponent powerpagecomponentid="874a3a74-b4af-495b-a2fe-c3be3261d29d">
+  <content>{
+  "filecontent": null,
+  "copy": "&lt;div data-component-theme=\"portalThemeColor6\" id=\"i8a8k8\" class=\"row sectionBlockLayout\" style=\"padding: 8px; margin: 0px; display: flex; flex-wrap: wrap; height: 15px; min-height: 15px;\"&gt;&lt;/div&gt;\n&lt;div id=\"iyr3m9\" class=\"row sectionBlockLayout\" style=\"padding: 8px; margin: 0px; display: flex; flex-wrap: wrap; text-align: left; min-height: auto;\"&gt;\n  &lt;div id=\"ijqnlo\" class=\"container\" style=\"padding: 0px; display: flex; flex-wrap: wrap;\"&gt;\n    &lt;div id=\"iexn3y\" class=\"col-lg-12 columnBlockLayout\" style=\"word-break: break-word; flex-grow: 1; display: flex; flex-direction: column; min-width: 300px;\"&gt;\n      &lt;h2&gt;Subpage one&lt;/h2&gt;\n      &lt;p&gt;This page can be customized by adding new sections and components.&lt;/p&gt;\n    &lt;/div&gt;\n  &lt;/div&gt;\n&lt;/div&gt;\n&lt;div id=\"ixdoxj\" class=\"row sectionBlockLayout\" style=\"padding: 8px; margin: 0px; display: flex; flex-wrap: wrap; text-align: left; min-height: auto;\"&gt;\n  &lt;div id=\"i2090h\" class=\"container\" style=\"padding: 0px; display: flex; flex-wrap: wrap;\"&gt;\n    &lt;div id=\"i1gj6u\" class=\"col-lg-6 columnBlockLayout\" style=\"word-break: break-word; flex-grow: 1; display: flex; flex-direction: column; min-width: 300px;\"&gt;&lt;img src=\"/Geometric-2.png\" name=\"Geometric-2.png\" alt=\"\" id=\"ioy349\" style=\"max-width: 100%; width: 132%; height: 336px; margin-left: auto; margin-right: auto;\" /&gt;&lt;/div&gt;\n    &lt;div id=\"i3teg6\" class=\"col-lg-6 columnBlockLayout\" style=\"word-break: break-word; flex-grow: 1; display: flex; flex-direction: column; min-width: 300px;\"&gt;\n      &lt;h2&gt;Product or service one&lt;/h2&gt;\n      &lt;p&gt;This section could provide testimonials, links to training or documentation, or introduce other actions your audience may want to take.&lt;/p&gt;\n    &lt;/div&gt;\n  &lt;/div&gt;\n&lt;/div&gt;\n&lt;div data-component-theme=\"portalThemeColor2\" id=\"iyq3e2\" class=\"row sectionBlockLayout\" style=\"padding: 8px; margin: 0px; display: flex; flex-wrap: wrap; min-height: 28px;\"&gt;&lt;/div&gt;\n&lt;div data-component-theme=\"portalThemeColor6\" id=\"ie10wi\" class=\"row sectionBlockLayout\" style=\"padding: 8px; margin: 0px; display: flex; flex-wrap: wrap; min-height: 52px;\"&gt;&lt;/div&gt;\n",
+  "displayorder": 1,
+  "enablerating": false,
+  "enabletracking": false,
+  "excludefromsearch": false,
+  "feedbackpolicy": 756150000,
+  "hiddenfromsitemap": false,
+  "isroot": false,
+  "pagetemplateid": "9667a70c-0a7e-4925-8878-8f4802b5e7f9",
+  "parentpageid": "312a52db-d630-4ce7-8c79-ad9dd389a2c4",
+  "partialurl": "subpage-1-deleted",
+  "publishingstateid": "9b9e528b-c84c-4cb4-afaa-56d94d4eb921",
+  "rootwebpageid": "28a5fa6d-a1ae-44ac-aa01-92e9ab066c1d",
+  "sharedpageconfiguration": false,
+  "summary": "&lt;p&gt;You can include a description of your child page here.&lt;/p&gt;",
+  "title": "Subpage 1"
+}</content>
+  <iscustomizable>1</iscustomizable>
+  <name>Subpage 1-deleted</name>
+  <powerpagecomponenttype>2</powerpagecomponenttype>
+  <powerpagesiteid>
+    <powerpagesiteid>6dc36fbc-1f20-4641-8e41-bf3fb5b9a72a</powerpagesiteid>
+  </powerpagesiteid>
+  <powerpagesitelanguageid>
+    <powerpagesitelanguageid>d1f8d8ba-31d1-4964-9d0a-be4e20c8ecd2</powerpagesitelanguageid>
+  </powerpagesitelanguageid>
+  <searchcontent>Subpage 1&lt;div data-component-theme="portalThemeColor6" id="i8a8k8" class="row sectionBlockLayout" style="padding: 8px; margin: 0px; display: flex; flex-wrap: wrap; height: 15px; min-height: 15px;"&gt;&lt;/div&gt;
+&lt;div id="iyr3m9" class="row sectionBlockLayout" style="padding: 8px; margin: 0px; display: flex; flex-wrap: wrap; text-align: left; min-height: auto;"&gt;
+  &lt;div id="ijqnlo" class="container" style="padding: 0px; display: flex; flex-wrap: wrap;"&gt;
+    &lt;div id="iexn3y" class="col-lg-12 columnBlockLayout" style="word-break: break-word; flex-grow: 1; display: flex; flex-direction: column; min-width: 300px;"&gt;
+      &lt;h2&gt;Subpage one&lt;/h2&gt;
+      &lt;p&gt;This page can be customized by adding new sections and components.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div id="ixdoxj" class="row sectionBlockLayout" style="padding: 8px; margin: 0px; display: flex; flex-wrap: wrap; text-align: left; min-height: auto;"&gt;
+  &lt;div id="i2090h" class="container" style="padding: 0px; display: flex; flex-wrap: wrap;"&gt;
+    &lt;div id="i1gj6u" class="col-lg-6 columnBlockLayout" style="word-break: break-word; flex-grow: 1; display: flex; flex-direction: column; min-width: 300px;"&gt;&lt;img src="/Geometric-2.png" name="Geometric-2.png" alt="" id="ioy349" style="max-width: 100%; width: 132%; height: 336px; margin-left: auto; margin-right: auto;" /&gt;&lt;/div&gt;
+    &lt;div id="i3teg6" class="col-lg-6 columnBlockLayout" style="word-break: break-word; flex-grow: 1; display: flex; flex-direction: column; min-width: 300px;"&gt;
+      &lt;h2&gt;Product or service one&lt;/h2&gt;
+      &lt;p&gt;This section could provide testimonials, links to training or documentation, or introduce other actions your audience may want to take.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div data-component-theme="portalThemeColor2" id="iyq3e2" class="row sectionBlockLayout" style="padding: 8px; margin: 0px; display: flex; flex-wrap: wrap; min-height: 28px;"&gt;&lt;/div&gt;
+&lt;div data-component-theme="portalThemeColor6" id="ie10wi" class="row sectionBlockLayout" style="padding: 8px; margin: 0px; display: flex; flex-wrap: wrap; min-height: 52px;"&gt;&lt;/div&gt;
+Subpage 1-deleted</searchcontent>
+  <statecode>1</statecode>
+  <statuscode>2</statuscode>
+</powerpagecomponent>

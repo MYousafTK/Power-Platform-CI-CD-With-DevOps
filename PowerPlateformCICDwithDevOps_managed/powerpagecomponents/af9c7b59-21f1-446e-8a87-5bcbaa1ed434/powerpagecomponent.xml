@@ -1,0 +1,14 @@
+<powerpagecomponent powerpagecomponentid="af9c7b59-21f1-446e-8a87-5bcbaa1ed434">
+  <content>{"display_name":"Navbar Left","type":756150001,"value":"&lt;p&gt;&lt;a class=\"homelink\" href=\"~/\" title=\"Starter Portal\"&gt;Starter Portal&lt;/a&gt;&lt;/p&gt;"}</content>
+  <iscustomizable>1</iscustomizable>
+  <name>Navbar Left</name>
+  <powerpagecomponenttype>7</powerpagecomponenttype>
+  <powerpagesiteid>
+    <powerpagesiteid>6dc36fbc-1f20-4641-8e41-bf3fb5b9a72a</powerpagesiteid>
+  </powerpagesiteid>
+  <powerpagesitelanguageid>
+    <powerpagesitelanguageid>d1f8d8ba-31d1-4964-9d0a-be4e20c8ecd2</powerpagesitelanguageid>
+  </powerpagesitelanguageid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</powerpagecomponent>

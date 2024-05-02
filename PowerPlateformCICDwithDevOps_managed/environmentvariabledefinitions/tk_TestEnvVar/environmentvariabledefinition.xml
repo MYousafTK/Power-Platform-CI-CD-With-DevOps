@@ -1,0 +1,10 @@
+<environmentvariabledefinition schemaname="tk_TestEnvVar">
+  <displayname default="Test Env Var">
+    <label description="Test Env Var" languagecode="1033" />
+  </displayname>
+  <introducedversion>1.0.0.78</introducedversion>
+  <iscustomizable>1</iscustomizable>
+  <isrequired>0</isrequired>
+  <secretstore>0</secretstore>
+  <type>100000000</type>
+</environmentvariabledefinition>

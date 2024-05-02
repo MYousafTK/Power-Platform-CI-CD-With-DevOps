@@ -1,0 +1,14 @@
+<powerpagecomponent powerpagecomponentid="8b8c7692-e546-4797-87e7-95182cb6af38">
+  <content>{"display_name":"Account/Signin/Account Conversion Identity Used Error Text","type":756150001,"value":"&lt;p&gt;This account already exists. Close your browser, restart the process, and select a different account on the &lt;b&gt;Account Migration&lt;/b&gt; page.&lt;/p&gt;"}</content>
+  <iscustomizable>1</iscustomizable>
+  <name>Account/Signin/AccountConversionIdentityUsedErrorText</name>
+  <powerpagecomponenttype>7</powerpagecomponenttype>
+  <powerpagesiteid>
+    <powerpagesiteid>6dc36fbc-1f20-4641-8e41-bf3fb5b9a72a</powerpagesiteid>
+  </powerpagesiteid>
+  <powerpagesitelanguageid>
+    <powerpagesitelanguageid>d1f8d8ba-31d1-4964-9d0a-be4e20c8ecd2</powerpagesitelanguageid>
+  </powerpagesitelanguageid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</powerpagecomponent>

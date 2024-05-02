@@ -1,0 +1,14 @@
+<powerpagecomponent powerpagecomponentid="cf19b30b-984f-4a35-9e10-ef58b756ec99">
+  <content>{"display_name":"Account/Set Password/Set Password Form Heading","type":756150000,"value":"Set password form heading"}</content>
+  <iscustomizable>1</iscustomizable>
+  <name>Account/SetPassword/SetPasswordFormHeading</name>
+  <powerpagecomponenttype>7</powerpagecomponenttype>
+  <powerpagesiteid>
+    <powerpagesiteid>6dc36fbc-1f20-4641-8e41-bf3fb5b9a72a</powerpagesiteid>
+  </powerpagesiteid>
+  <powerpagesitelanguageid>
+    <powerpagesitelanguageid>d1f8d8ba-31d1-4964-9d0a-be4e20c8ecd2</powerpagesitelanguageid>
+  </powerpagesitelanguageid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</powerpagecomponent>

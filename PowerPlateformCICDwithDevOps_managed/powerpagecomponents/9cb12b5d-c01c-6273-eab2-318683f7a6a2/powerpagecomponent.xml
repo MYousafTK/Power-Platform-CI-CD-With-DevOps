@@ -1,0 +1,23 @@
+<powerpagecomponent powerpagecomponentid="9cb12b5d-c01c-6273-eab2-318683f7a6a2">
+  <content>{
+  "filecontent": null,
+  "displayorder": 2,
+  "weblinksetid": "7925a911-9393-4e8a-b04d-a43d060c92c6",
+  "pageid": "2336e4a2-389b-e0ce-f68c-678760f4362f",
+  "publishingstateid": "9b9e528b-c84c-4cb4-afaa-56d94d4eb921",
+  "displaypagevalidation": false,
+  "displayimageonly": false,
+  "displaypagechildlinks": false,
+  "openinnewwindow": false,
+  "robotsfollowlink": true,
+  "parentweblinkid": "fb54c6c3-1fef-4b16-bcec-3272afb92f02"
+}</content>
+  <iscustomizable>1</iscustomizable>
+  <name>crud</name>
+  <powerpagecomponenttype>5</powerpagecomponenttype>
+  <powerpagesiteid>
+    <powerpagesiteid>6dc36fbc-1f20-4641-8e41-bf3fb5b9a72a</powerpagesiteid>
+  </powerpagesiteid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</powerpagecomponent>

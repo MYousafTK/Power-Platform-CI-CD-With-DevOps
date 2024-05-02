@@ -1,0 +1,11 @@
+<powerpagecomponent powerpagecomponentid="58db34e3-3250-439e-b24c-beff8f2c1418">
+  <content>{"source":"{% extends 'Layout 1 Column' %}\r\n\r\n{% block main %}\r\n{% if sitemap.root.children.size &gt; 0 %}\r\n  {% assign leaf_page = false %}\r\n{% else %}\r\n  {% assign leaf_page = true %}\r\n{% endif %}\r\n\r\n&lt;ul class=\"tree\" role=\"navigation\"&gt;\r\n  &lt;li class=\"root\"&gt;\r\n    &lt;a href=\"{{ sitemap.root.url | h }}\" title=\"{{ sitemap.root.title | h }}\"&gt;\r\n      {{ sitemap.root.title | h }}\r\n    &lt;/a&gt;\r\n    {% unless leaf_page %}\r\n      &lt;ul&gt;\r\n        {% for child in sitemap.root.children %}\r\n          {% include 'Sitemap Item' %}\r\n        {% endfor %}\r\n      &lt;/ul&gt;\r\n    {% endunless %}\r\n  &lt;/li&gt;\r\n&lt;/ul&gt;\r\n{% endblock %}"}</content>
+  <iscustomizable>1</iscustomizable>
+  <name>Sitemap</name>
+  <powerpagecomponenttype>8</powerpagecomponenttype>
+  <powerpagesiteid>
+    <powerpagesiteid>6dc36fbc-1f20-4641-8e41-bf3fb5b9a72a</powerpagesiteid>
+  </powerpagesiteid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</powerpagecomponent>

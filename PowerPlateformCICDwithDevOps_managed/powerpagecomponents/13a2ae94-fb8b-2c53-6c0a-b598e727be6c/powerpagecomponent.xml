@@ -1,0 +1,23 @@
+<powerpagecomponent powerpagecomponentid="13a2ae94-fb8b-2c53-6c0a-b598e727be6c">
+  <content>{
+  "filecontent": null,
+  "displayorder": 2,
+  "weblinksetid": "7925a911-9393-4e8a-b04d-a43d060c92c6",
+  "pageid": "63828088-604c-41b6-8c47-5dc71f15a52b",
+  "publishingstateid": "9b9e528b-c84c-4cb4-afaa-56d94d4eb921",
+  "displaypagevalidation": false,
+  "displayimageonly": false,
+  "displaypagechildlinks": false,
+  "openinnewwindow": false,
+  "robotsfollowlink": true,
+  "parentweblinkid": "e49c2ea2-2bca-1860-d444-a1e387561b4a"
+}</content>
+  <iscustomizable>1</iscustomizable>
+  <name>crudTask</name>
+  <powerpagecomponenttype>5</powerpagecomponenttype>
+  <powerpagesiteid>
+    <powerpagesiteid>6dc36fbc-1f20-4641-8e41-bf3fb5b9a72a</powerpagesiteid>
+  </powerpagesiteid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</powerpagecomponent>
